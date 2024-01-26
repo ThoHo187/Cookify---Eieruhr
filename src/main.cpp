@@ -1,9 +1,6 @@
 // main.cpp
 
 #include <Arduino.h>
-#ifdef AVR
-#include <avr/power.h>
-#endif
 #include <map>
 #include "RotaryEncoder.h"
 #include "RTC.h"
@@ -40,19 +37,6 @@ int rotary_encoder()
   encoder_zaehler.tick();
   int newPos = encoder_zaehler.getPosition();
   return newPos;
-}
-
-String sliderValue = "0";
-
-// Platzhalter wird durch ButtonSection in WebPage ersetzt
-String processor(const String& var)
-{
-  //Serial.println(var);
-  if (var == "SLIDERVALUE")
-  {
-    return sliderValue;
-  }
-  return String();
 }
 
 void setup() 
